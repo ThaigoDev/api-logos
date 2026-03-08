@@ -8,6 +8,6 @@ import org.mapstruct.Mapper;
 @Mapper(componentModel = "spring")
 public interface SetorMapper {
 
-    RespostaSetorDTO toDTO(Setor setor);
-    Setor toEntity (RequisicaoSetorDTO requisicaoSetorDTO);
+    RespostaSetorDTO mapearParaDTO(Setor setor);
+    Setor mapearParaEntidade (RequisicaoSetorDTO requisicaoSetorDTO);
 }
