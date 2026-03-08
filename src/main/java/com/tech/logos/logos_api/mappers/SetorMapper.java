@@ -9,5 +9,5 @@ import org.mapstruct.Mapper;
 public interface SetorMapper {
 
     RespostaSetorDTO toDTO(Setor setor);
-     Setor toEntity (RequisicaoSetorDTO requisicaoSetorDTO);
+    Setor toEntity (RequisicaoSetorDTO requisicaoSetorDTO);
 }

@@ -8,8 +8,8 @@ import org.springframework.web.bind.annotation.RestControllerAdvice;
 @RestControllerAdvice
 public class GlobalHandlerExceptions {
 
-    @ExceptionHandler(JaExisteException.class)
-    public MensagemErroDTO handleJaExisteRegistro(JaExisteException e) {
+    @ExceptionHandler(RegistroExistenteException.class)
+    public MensagemErroDTO handleJaExisteRegistro(RegistroExistenteException e) {
         return new  MensagemErroDTO(HttpStatus.CONFLICT.value(), e.getMessage());
     }
 
