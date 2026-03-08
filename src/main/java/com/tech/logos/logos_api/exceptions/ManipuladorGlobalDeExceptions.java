@@ -6,7 +6,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 @RestControllerAdvice
-public class GlobalHandlerExceptions {
+public class ManipuladorGlobalDeExceptions {
 
     @ExceptionHandler(RegistroExistenteException.class)
     public MensagemErroDTO handleJaExisteRegistro(RegistroExistenteException e) {

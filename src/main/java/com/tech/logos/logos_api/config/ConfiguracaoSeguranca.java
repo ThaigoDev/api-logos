@@ -9,7 +9,7 @@ import org.springframework.security.web.SecurityFilterChain;
 
 @Configuration
 @EnableWebSecurity
-public class SecurityConfiguration {
+public class ConfiguracaoSeguranca {
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity httpSecurity) {
         return httpSecurity.csrf(AbstractHttpConfigurer::disable).build();
