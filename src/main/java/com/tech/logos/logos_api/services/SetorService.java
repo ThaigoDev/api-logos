@@ -29,8 +29,6 @@ public class SetorService {
             throw  new RegistroExistenteException("Já existe um setor com esse nome");
         }
         Setor setorConvertidoParaEntidade = mapper.mapearParaEntidade(requisicaoSetorDTO);
-        System.out.println("requisição: "+ requisicaoSetorDTO.nome());
-        System.out.println("Entidade comvertida : " + setorConvertidoParaEntidade.getNome());
         return  mapper.mapearParaDTO(setorRepository.save(setorConvertidoParaEntidade));
 
     }
