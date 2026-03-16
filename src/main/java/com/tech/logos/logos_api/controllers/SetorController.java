@@ -1,11 +1,10 @@
 package com.tech.logos.logos_api.controllers;
 
 import com.tech.logos.logos_api.controllers.util.GeradorDeLocationURI;
-import com.tech.logos.logos_api.domain.dtos.setorDTO.RequisicaoSetorDTO;
-import com.tech.logos.logos_api.domain.dtos.setorDTO.RespostaSetorDTO;
+import com.tech.logos.logos_api.domain.dtos.SetorDTO.RequisicaoSetorDTO;
+import com.tech.logos.logos_api.domain.dtos.SetorDTO.RespostaSetorDTO;
 import com.tech.logos.logos_api.services.SetorService;
 import lombok.RequiredArgsConstructor;
-import org.apache.coyote.Response;
 import org.springframework.data.domain.Page;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -49,7 +48,7 @@ public class SetorController  implements GeradorDeLocationURI {
     @DeleteMapping("{id}")
     public ResponseEntity<Void> removerSetor(@PathVariable("id") UUID setorId) {
         setorService.remover(setorId);
-        return  ResponseEntity.noContent().build();
+        return  ResponseEntity.ok().build();
     }
 
 

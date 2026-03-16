@@ -1,7 +1,7 @@
 package com.tech.logos.logos_api.services;
 
-import com.tech.logos.logos_api.domain.dtos.setorDTO.RequisicaoSetorDTO;
-import com.tech.logos.logos_api.domain.dtos.setorDTO.RespostaSetorDTO;
+import com.tech.logos.logos_api.domain.dtos.SetorDTO.RequisicaoSetorDTO;
+import com.tech.logos.logos_api.domain.dtos.SetorDTO.RespostaSetorDTO;
 import com.tech.logos.logos_api.domain.entities.Setor;
 import com.tech.logos.logos_api.exceptions.RegistroExistenteException;
 import com.tech.logos.logos_api.mappers.SetorMapper;
@@ -14,7 +14,6 @@ import org.springframework.stereotype.Service;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.util.UUID;
-import java.util.stream.Collectors;
 
 @Service
 @RequiredArgsConstructor

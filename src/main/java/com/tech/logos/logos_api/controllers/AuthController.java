@@ -13,6 +13,10 @@ import org.springframework.web.bind.annotation.RestController;
 public class AuthController {
     @PostMapping
     public ResponseEntity<Void> login() {
-     return ResponseEntity.ok().build();
+
+        return ResponseEntity.ok().build();
     }
+
+
+
 }
