@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:mysql://${DB_HOST:localhost}:${DB_PORT:3307}/${DB_NAME:api-logos-db}
-    username: ${DB_USER:root}
-    password: ${DB_PASSWORD:root}
+    url: jdbc:mysql://localhost:3307/api-logos-db
+    username: root
+    password: root
     driver-class-name: com.mysql.cj.jdbc.Driver
 
   jpa:
@@ -11,7 +11,7 @@ spring:
     show-sql: true
 
 server:
-  port: ${PORT:8080}
+  port: 8080
 
 jwt:
-  secret: ${SECRET}
+  secret: t1i1WYjxVkF+JJoeaw8Rh+yfS4AHqkiGHaY/DP5QAsE=
