@@ -1,4 +1,4 @@
-package com.tech.logos.logos_api.domain.dtos.UserDTO;
+package com.tech.logos.logos_api.domain.dtos.LoginDTO;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
