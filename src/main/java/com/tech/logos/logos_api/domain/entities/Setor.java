@@ -19,10 +19,13 @@ public class Setor {
 
     @Column(length = 20, nullable = false)
     private String nome;
+
     @Column(length = 50, nullable = true)
     private String descricao;
 
     @CreatedDate
     private LocalDateTime data_criacao;
+
+
 
 }
