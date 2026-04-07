@@ -9,9 +9,12 @@ import com.tech.logos.logos_api.repositories.BemRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
+import org.springframework.web.server.ResponseStatusException;
 
 import java.util.List;
+import java.util.UUID;
 
 @Service
 @RequiredArgsConstructor
@@ -32,5 +35,27 @@ public class BemService {
     public Page<RespostaBemDTO> obter(int pagina, int tamanhoPagina) {
         return bemRepository.findAll(PageRequest.of(pagina, tamanhoPagina))
                 .map(mapper::paraDTO);
+    }
+
+    public RespostaBemDTO atualizar(UUID id, RequisicaoBemDTO requisicaoBemDTO) {
+
+        Bem bemEncontrado =  bemRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Bem não encontrado!"));
+        Bem requisicaoBemConvertido = mapper.paraEntidade(requisicaoBemDTO);
+        requisicaoBemConvertido.setId(bemEncontrado.getId());
+         return mapper.paraDTO(bemRepository.save(requisicaoBemConvertido));
+
+    }
+
+    public void deletar(UUID id) {
+        Bem bemEcontrado =  bemRepository
+                .findById(id)
+                .orElseThrow(()-> new ResponseStatusException( HttpStatus.NOT_FOUND, "Bem não encontrado!"));
+        bemRepository.delete(bemEcontrado);
+    }
+
+    public RespostaBemDTO obterPorId(UUID id) {
+    return mapper.paraDTO(bemRepository
+            .findById(id)
+            .orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND, "Não foi possível encontrar esse bem!")));
     }
 }

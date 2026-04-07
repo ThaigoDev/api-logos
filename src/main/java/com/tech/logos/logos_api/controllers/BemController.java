@@ -2,6 +2,7 @@ package com.tech.logos.logos_api.controllers;
 
 import com.tech.logos.logos_api.domain.dtos.BemDTO.RequisicaoBemDTO;
 import com.tech.logos.logos_api.domain.dtos.BemDTO.RespostaBemDTO;
+import com.tech.logos.logos_api.domain.dtos.SetorDTO.RespostaSetorDTO;
 import com.tech.logos.logos_api.services.BemService;
 import lombok.RequiredArgsConstructor;
 import org.apache.coyote.Response;
@@ -12,6 +13,7 @@ import org.springframework.web.servlet.support.ServletUriComponentsBuilder;
 
 import java.net.URI;
 import java.util.List;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("bens")
@@ -44,5 +46,22 @@ public class BemController {
         return ResponseEntity.ok().body(listaBens);
 
     }
+    @GetMapping("{id}")
+    public ResponseEntity<RespostaBemDTO> obterPorId(@PathVariable("id") UUID id) {
+        RespostaBemDTO bemObtido =  bemService.obterPorId(id);
+        return ResponseEntity.ok().body(bemObtido);
+    }
+    @PutMapping("{id}")
+    public ResponseEntity<RespostaBemDTO> atualizarBem(@PathVariable("id")UUID id, @RequestBody RequisicaoBemDTO requisicaoBemDTO) {
+        RespostaBemDTO bemAtualizado  =  bemService.atualizar(id, requisicaoBemDTO);
+         return ResponseEntity.ok().body(bemAtualizado);
+    }
+
+    @DeleteMapping("{id}")
+    public ResponseEntity<Void> deletarBemPorId(@PathVariable("id") UUID id) {
+        bemService.deletar(id);
+        return  ResponseEntity.noContent().build();
+    }
+
 
 }

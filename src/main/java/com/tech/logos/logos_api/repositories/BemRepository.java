@@ -10,4 +10,5 @@ import java.util.UUID;
 public interface BemRepository extends JpaRepository<Bem, UUID> {
 
     Boolean existsByCodigoPatrimonial(@NotBlank(message = "Código Patrimonial é obrigatório, não pode ser 'null'") String s);
+
 }
