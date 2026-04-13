@@ -31,12 +31,10 @@ public class BemService {
 
         return mapper.paraDTO(bemRepository.save(mapper.paraEntidade(requisicaoBemDTO))) ;
     }
-
     public Page<RespostaBemDTO> obter(int pagina, int tamanhoPagina) {
         return bemRepository.findAll(PageRequest.of(pagina, tamanhoPagina))
                 .map(mapper::paraDTO);
     }
-
     public RespostaBemDTO atualizar(UUID id, RequisicaoBemDTO requisicaoBemDTO) {
 
         Bem bemEncontrado =  bemRepository.findById(id).orElseThrow(()-> new ResponseStatusException(HttpStatus.NOT_FOUND,"Bem não encontrado!"));
@@ -45,14 +43,12 @@ public class BemService {
          return mapper.paraDTO(bemRepository.save(requisicaoBemConvertido));
 
     }
-
     public void deletar(UUID id) {
         Bem bemEcontrado =  bemRepository
                 .findById(id)
                 .orElseThrow(()-> new ResponseStatusException( HttpStatus.NOT_FOUND, "Bem não encontrado!"));
         bemRepository.delete(bemEcontrado);
     }
-
     public RespostaBemDTO obterPorId(UUID id) {
     return mapper.paraDTO(bemRepository
             .findById(id)

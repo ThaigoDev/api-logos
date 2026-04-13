@@ -24,7 +24,6 @@ public class SetorController  implements GeradorDeLocationURI {
         RespostaSetorDTO setorSalvo =  setorService.salvar(requisicaoSetorDTO);
         return ResponseEntity.created(gerarLocationURI(setorSalvo.id())).body(setorSalvo);
     }
-
     @GetMapping
     public ResponseEntity<Page<RespostaSetorDTO>> listarSetores(
             @RequestParam(value = "pagina", defaultValue = "0")

@@ -10,7 +10,9 @@ import java.util.UUID;
 public record RequisicaoBemDTO(
         @NotBlank(message = "Código Patrimonial é obrigatório, não pode ser 'null'")
         String codigo_patrimonial,
+
         String descricao,
+
         @NotNull(message = "Valor é obrigatório, não pode ser 'null'")
         BigDecimal valor,
         @NotBlank(message = "Estado de Conservação é obrigatório, não pode ser 'null'")

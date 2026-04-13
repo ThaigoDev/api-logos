@@ -33,7 +33,6 @@ public class BemController {
 
         return  ResponseEntity.created(location).body(bemSalvo);
     }
-
     @GetMapping
     public ResponseEntity<Page<RespostaBemDTO>> obterBens (
             @RequestParam(value = "pagina", defaultValue = "0")
@@ -56,7 +55,6 @@ public class BemController {
         RespostaBemDTO bemAtualizado  =  bemService.atualizar(id, requisicaoBemDTO);
          return ResponseEntity.ok().body(bemAtualizado);
     }
-
     @DeleteMapping("{id}")
     public ResponseEntity<Void> deletarBemPorId(@PathVariable("id") UUID id) {
         bemService.deletar(id);
